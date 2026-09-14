@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dsahumofumyvy"]
+
+[ext_resource type="Script" uid="uid://bggaej3enk5nu" path="res://Scenes/Login/register.gd" id="1_d52cs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_leum0"]
+
+[node name="Register" type="Panel" unique_id=2084844229]
+offset_left = 414.0
+offset_right = 814.0
+offset_bottom = 183.0
+script = ExtResource("1_d52cs")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=255092048]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = -10.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer" unique_id=1306152029]
+custom_minimum_size = Vector2(0, 49.205)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]Create Account"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1126958666]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer" unique_id=712394694]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Username"
+
+[node name="CreateUsername" type="TextEdit" parent="VBoxContainer/HBoxContainer" unique_id=600347111]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1676726436]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2" unique_id=127859852]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Password"
+
+[node name="CreatePassword" type="TextEdit" parent="VBoxContainer/HBoxContainer2" unique_id=1932645590]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Register" type="Button" parent="VBoxContainer" unique_id=432438661]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Register"
+
+[node name="btnExit" type="Button" parent="." unique_id=780683254]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 6.0
+offset_right = 394.0
+offset_bottom = 37.0
+size_flags_horizontal = 3
+theme_override_styles/normal = SubResource("StyleBoxEmpty_leum0")
+text = "X"
+
+[connection signal="button_down" from="VBoxContainer/Register" to="." method="_on_register_button_down"]
+[connection signal="button_down" from="btnExit" to="." method="_on_btn_exit_button_down"]

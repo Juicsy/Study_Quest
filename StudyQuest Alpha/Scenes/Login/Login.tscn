@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://coq3qn0ignm3"]
+
+[ext_resource type="Script" uid="uid://bfg651rke6x1j" path="res://Scenes/Login/login.gd" id="1_h4wbb"]
+[ext_resource type="PackedScene" uid="uid://dsahumofumyvy" path="res://Scenes/Login/register.tscn" id="2_h4wbb"]
+
+[node name="Menu" type="Control" unique_id=1393983596]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LoginWindow" type="Panel" parent="." unique_id=1988666720]
+layout_mode = 0
+offset_left = 766.0
+offset_top = 262.0
+offset_right = 1166.0
+offset_bottom = 445.0
+script = ExtResource("1_h4wbb")
+Register = ExtResource("2_h4wbb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="LoginWindow" unique_id=1864312992]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 3.0
+offset_right = -10.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LoginWindow/VBoxContainer" unique_id=2057889644]
+custom_minimum_size = Vector2(0, 49.205)
+layout_mode = 2
+bbcode_enabled = true
+text = "[b]User Login"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LoginWindow/VBoxContainer" unique_id=1959951506]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LoginWindow/VBoxContainer/HBoxContainer" unique_id=660017463]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Username"
+
+[node name="Username" type="TextEdit" parent="LoginWindow/VBoxContainer/HBoxContainer" unique_id=188151937]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="LoginWindow/VBoxContainer" unique_id=363585087]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="LoginWindow/VBoxContainer/HBoxContainer2" unique_id=1098780847]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Password"
+
+[node name="Password" type="TextEdit" parent="LoginWindow/VBoxContainer/HBoxContainer2" unique_id=2000063466]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Login" type="Button" parent="LoginWindow/VBoxContainer" unique_id=1809176913]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Login
+"
+
+[node name="CreateUser" type="Button" parent="LoginWindow" unique_id=927728266]
+layout_mode = 0
+offset_left = 285.0
+offset_top = 7.0
+offset_right = 395.0
+offset_bottom = 38.0
+size_flags_horizontal = 3
+text = "CreateUser
+"
+
+[connection signal="button_down" from="LoginWindow/VBoxContainer/Login" to="LoginWindow" method="_on_login_button_down"]
+[connection signal="button_down" from="LoginWindow/CreateUser" to="." method="_on_login_button_down"]
+[connection signal="button_down" from="LoginWindow/CreateUser" to="LoginWindow" method="_on_create_user_button_down"]
