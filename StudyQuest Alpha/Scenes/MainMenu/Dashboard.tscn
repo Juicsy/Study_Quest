@@ -1,0 +1,304 @@
+[gd_scene format=3 uid="uid://bq1m3megoxn7f"]
+
+[ext_resource type="PackedScene" uid="uid://bh6aandrqcol6" path="res://Scenes/MainMenu/Sidebar.tscn" id="1_oa1no"]
+[ext_resource type="Texture2D" uid="uid://bhoscqbnslye6" path="res://icon.svg" id="2_oa1no"]
+
+[sub_resource type="Gradient" id="Gradient_5leke"]
+colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_npr3q"]
+gradient = SubResource("Gradient_5leke")
+fill_from = Vector2(0.4869565, 0)
+fill_to = Vector2(0.5478261, 1)
+
+[node name="Dashboard" type="Control" unique_id=1419743369]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="TextureRect" parent="." unique_id=1663771154]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_npr3q")
+
+[node name="BackgroundDim" type="ColorRect" parent="." unique_id=1910993411]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="MainLayout" type="HBoxContainer" parent="." unique_id=1270867697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sidebar" parent="MainLayout" unique_id=1952958877 instance=ExtResource("1_oa1no")]
+layout_mode = 2
+
+[node name="ContentMargin" type="MarginContainer" parent="MainLayout" unique_id=1221522050]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="DashboardScroll" type="ScrollContainer" parent="MainLayout/ContentMargin" unique_id=1415776943]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="ContentLayout" type="VBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll" unique_id=1819156628]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="Topbar" type="HBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout" unique_id=1504113091]
+layout_mode = 2
+
+[node name="WelcomeSection" type="VBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar" unique_id=111806684]
+layout_mode = 2
+
+[node name="lblTitle" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar/WelcomeSection" unique_id=404996550]
+layout_mode = 2
+text = "Dashboard"
+
+[node name="lblWelcome" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar/WelcomeSection" unique_id=2101933577]
+layout_mode = 2
+text = "Welcome User"
+
+[node name="TopSpacer" type="Control" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar" unique_id=2129141455]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="StreakPanel" type="PanelContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar" unique_id=892822474]
+layout_mode = 2
+
+[node name="StreakLayout" type="HBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar/StreakPanel" unique_id=1470537609]
+layout_mode = 2
+
+[node name="StreakIcon" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar/StreakPanel/StreakLayout" unique_id=1105604137]
+layout_mode = 2
+
+[node name="lblStreak" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar/StreakPanel/StreakLayout" unique_id=1089242801]
+layout_mode = 2
+text = "# Day Streak"
+
+[node name="PointsPanel" type="PanelContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar" unique_id=2074667836]
+layout_mode = 2
+
+[node name="PointsLayout" type="HBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar/PointsPanel" unique_id=550213615]
+layout_mode = 2
+
+[node name="PointsIcon" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar/PointsPanel/PointsLayout" unique_id=896563369]
+layout_mode = 2
+
+[node name="lblPoints" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar/PointsPanel/PointsLayout" unique_id=34557224]
+layout_mode = 2
+text = "# Points"
+
+[node name="lblModeHeading" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout" unique_id=1872449671]
+layout_mode = 2
+text = "Choose your next quest"
+
+[node name="ModeCards" type="HBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout" unique_id=1593487450]
+layout_mode = 2
+
+[node name="SoloCard" type="PanelContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards" unique_id=1504143998]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SoloMargin" type="MarginContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/SoloCard" unique_id=589389688]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 6
+
+[node name="SoloLayout" type="VBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/SoloCard/SoloMargin" unique_id=1353662520]
+layout_mode = 2
+
+[node name="SoloArtwork" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/SoloCard/SoloMargin/SoloLayout" unique_id=1248839982]
+layout_mode = 2
+texture = ExtResource("2_oa1no")
+
+[node name="lblSoloTitle" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/SoloCard/SoloMargin/SoloLayout" unique_id=649621186]
+layout_mode = 2
+text = "Solo Mode"
+horizontal_alignment = 1
+
+[node name="lblSoloDescription" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/SoloCard/SoloMargin/SoloLayout" unique_id=394776749]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "Study At your own pace"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="btnSolo" type="Button" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/SoloCard/SoloMargin/SoloLayout" unique_id=1569064187]
+layout_mode = 2
+text = "Start Solo"
+
+[node name="MultiplayerCard" type="PanelContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards" unique_id=1647430109]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MultiplayerMargin" type="MarginContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/MultiplayerCard" unique_id=1186358938]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 6
+
+[node name="MultiplayerLayout" type="VBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/MultiplayerCard/MultiplayerMargin" unique_id=1418310502]
+layout_mode = 2
+
+[node name="MultiplayerArtwork" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/MultiplayerCard/MultiplayerMargin/MultiplayerLayout" unique_id=718493100]
+layout_mode = 2
+texture = ExtResource("2_oa1no")
+
+[node name="lblMultiplayerTitle" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/MultiplayerCard/MultiplayerMargin/MultiplayerLayout" unique_id=1202778424]
+layout_mode = 2
+text = "Multiplayer"
+horizontal_alignment = 1
+
+[node name="lblMultiplayerDescription" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/MultiplayerCard/MultiplayerMargin/MultiplayerLayout" unique_id=1580857310]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "Complete quizzes and compare team scores"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="btnMultiplayer" type="Button" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/MultiplayerCard/MultiplayerMargin/MultiplayerLayout" unique_id=497810350]
+layout_mode = 2
+text = "Open Teams"
+
+[node name="JourneyCards" type="HBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout" unique_id=1469069129]
+layout_mode = 2
+
+[node name="ContinueCard" type="PanelContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards" unique_id=862406440]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ContinueMarrgin" type="MarginContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/ContinueCard" unique_id=121484701]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 6
+
+[node name="ContinueLayout" type="VBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/ContinueCard/ContinueMarrgin" unique_id=1944503721]
+layout_mode = 2
+
+[node name="lblContinueTitle" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/ContinueCard/ContinueMarrgin/ContinueLayout" unique_id=1378680313]
+layout_mode = 2
+text = "Continue Your Journey"
+
+[node name="lblLastSubject" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/ContinueCard/ContinueMarrgin/ContinueLayout" unique_id=2119460899]
+layout_mode = 2
+text = "[LAST SUBJECT]"
+
+[node name="lblLastActivity" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/ContinueCard/ContinueMarrgin/ContinueLayout" unique_id=1150359370]
+layout_mode = 2
+text = "Last Activity:[ACTIVITY]"
+
+[node name="btnContinue" type="Button" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/ContinueCard/ContinueMarrgin/ContinueLayout" unique_id=194133663]
+layout_mode = 2
+text = "Continue"
+
+[node name="DailyQuestCard" type="PanelContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards" unique_id=204989133]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuestMargin" type="MarginContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/DailyQuestCard" unique_id=1196494531]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 6
+
+[node name="QuestLayout" type="VBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/DailyQuestCard/QuestMargin" unique_id=705319889]
+layout_mode = 2
+
+[node name="lblQuestTitle" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/DailyQuestCard/QuestMargin/QuestLayout" unique_id=389134305]
+layout_mode = 2
+text = "Daily Quest"
+
+[node name="lblQuestDescription" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/DailyQuestCard/QuestMargin/QuestLayout" unique_id=1285737094]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "[QUEST]"
+autowrap_mode = 3
+
+[node name="QuestProgress" type="ProgressBar" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/DailyQuestCard/QuestMargin/QuestLayout" unique_id=662502147]
+layout_mode = 2
+
+[node name="lblQuestProgress" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/DailyQuestCard/QuestMargin/QuestLayout" unique_id=628188608]
+layout_mode = 2
+text = "#/# completed"
+
+[node name="lblQuestRewards" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/DailyQuestCard/QuestMargin/QuestLayout" unique_id=1330816292]
+layout_mode = 2
+text = "+# points"
+
+[node name="BadgesCard" type="PanelContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards" unique_id=2030795166]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BadgesMargin" type="MarginContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard" unique_id=995135391]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 6
+
+[node name="BadgesLayout" type="VBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard/BadgesMargin" unique_id=581939312]
+layout_mode = 2
+
+[node name="lblBadgesTitle" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard/BadgesMargin/BadgesLayout" unique_id=769067834]
+layout_mode = 2
+text = "Recent Badges"
+
+[node name="BadgeList" type="HBoxContainer" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard/BadgesMargin/BadgesLayout" unique_id=1054660970]
+layout_mode = 2
+
+[node name="BadgeOne" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard/BadgesMargin/BadgesLayout/BadgeList" unique_id=1282882696]
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_oa1no")
+
+[node name="BadgeTwo" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard/BadgesMargin/BadgesLayout/BadgeList" unique_id=616084587]
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_oa1no")
+
+[node name="BadgeThree" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard/BadgesMargin/BadgesLayout/BadgeList" unique_id=597451923]
+custom_maximum_size = Vector2(100, 100)
+layout_mode = 2
+texture = ExtResource("2_oa1no")
+
+[node name="lblBadgeSummary" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard/BadgesMargin/BadgesLayout" unique_id=1684284967]
+layout_mode = 2
+text = "Your latest achievements"
+horizontal_alignment = 1
+
+[node name="btnViewAchievements" type="Button" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard/BadgesMargin/BadgesLayout" unique_id=1770856275]
+layout_mode = 2
+text = "View Achievements"
+
+[node name="LogoutConfirmation" type="ConfirmationDialog" parent="." unique_id=335789646]

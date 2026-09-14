@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://bh6aandrqcol6"]
+
+[ext_resource type="Texture2D" uid="uid://ck8vxyjmjhjb6" path="res://asss/SwordShield.png" id="1_vome6"]
+
+[node name="Sidebar" type="PanelContainer" unique_id=1952958877]
+custom_minimum_size = Vector2(220, 0)
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 231.0
+grow_vertical = 2
+
+[node name="SidebarMargin" type="MarginContainer" parent="." unique_id=978582320]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
+
+[node name="SidebarLayout" type="VBoxContainer" parent="SidebarMargin" unique_id=254586990]
+layout_mode = 2
+
+[node name="Logo" type="TextureRect" parent="SidebarMargin/SidebarLayout" unique_id=1290305685]
+custom_maximum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("1_vome6")
+
+[node name="lblAppName" type="Label" parent="SidebarMargin/SidebarLayout" unique_id=1331467139]
+layout_mode = 2
+text = "STUDY QUEST"
+horizontal_alignment = 1
+
+[node name="Navigation" type="VBoxContainer" parent="SidebarMargin/SidebarLayout" unique_id=201664808]
+layout_mode = 2
+
+[node name="btnDashboard" type="Button" parent="SidebarMargin/SidebarLayout/Navigation" unique_id=2001301716]
+layout_mode = 2
+text = "Dashboard"
+
+[node name="btnSolo" type="Button" parent="SidebarMargin/SidebarLayout/Navigation" unique_id=737603484]
+layout_mode = 2
+text = "Solo"
+
+[node name="btnMultiplayer" type="Button" parent="SidebarMargin/SidebarLayout/Navigation" unique_id=1666366134]
+layout_mode = 2
+text = "Multiplayer"
+
+[node name="btnQuestionBank" type="Button" parent="SidebarMargin/SidebarLayout/Navigation" unique_id=1697800614]
+layout_mode = 2
+text = "QuestionBank"
+
+[node name="btnLeaderboard" type="Button" parent="SidebarMargin/SidebarLayout/Navigation" unique_id=343969013]
+layout_mode = 2
+text = "Leaderboard"
+
+[node name="btnHistory" type="Button" parent="SidebarMargin/SidebarLayout/Navigation" unique_id=1768047300]
+layout_mode = 2
+text = "History"
+
+[node name="BottomSpacer" type="Control" parent="SidebarMargin/SidebarLayout" unique_id=1802829267]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="btnSettings" type="Button" parent="SidebarMargin/SidebarLayout" unique_id=131454236]
+layout_mode = 2
+text = "Settings"
+
+[node name="btnLogout" type="Button" parent="SidebarMargin/SidebarLayout" unique_id=679545]
+layout_mode = 2
+text = "Logout"

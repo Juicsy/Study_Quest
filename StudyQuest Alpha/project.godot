@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="StudyQuest Alpha1"
-run/main_scene="uid://coq3qn0ignm3"
+run/main_scene="uid://bq1m3megoxn7f"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

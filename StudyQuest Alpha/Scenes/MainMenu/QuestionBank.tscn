@@ -1,0 +1,311 @@
+[gd_scene format=3 uid="uid://lwsil7qpr63g"]
+
+[ext_resource type="PackedScene" uid="uid://bh6aandrqcol6" path="res://Scenes/MainMenu/Sidebar.tscn" id="1_dco4k"]
+[ext_resource type="PackedScene" uid="uid://xqjq0gs4yrsg" path="res://Scenes/MainMenu/question_row.tscn" id="2_k8t5i"]
+
+[sub_resource type="Gradient" id="Gradient_5leke"]
+colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_npr3q"]
+gradient = SubResource("Gradient_5leke")
+fill_from = Vector2(0.4869565, 0)
+fill_to = Vector2(0.5478261, 1)
+
+[node name="QuestionBank" type="Control" unique_id=1419743369]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Background" type="TextureRect" parent="." unique_id=1663771154]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_npr3q")
+
+[node name="BackgroundDim" type="ColorRect" parent="." unique_id=1910993411]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="MainLayout" type="HBoxContainer" parent="." unique_id=1270867697]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sidebar" parent="MainLayout" unique_id=1952958877 instance=ExtResource("1_dco4k")]
+layout_mode = 2
+
+[node name="ContentMargin" type="MarginContainer" parent="MainLayout" unique_id=1188200319]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ContentLayout" type="VBoxContainer" parent="MainLayout/ContentMargin" unique_id=1808644646]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Header" type="HBoxContainer" parent="MainLayout/ContentMargin/ContentLayout" unique_id=1236748973]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HeaderText" type="VBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/Header" unique_id=706749339]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lblEyebrow" type="Label" parent="MainLayout/ContentMargin/ContentLayout/Header/HeaderText" unique_id=1502385344]
+layout_mode = 2
+
+[node name="lblTitle" type="Label" parent="MainLayout/ContentMargin/ContentLayout/Header/HeaderText" unique_id=1523918832]
+layout_mode = 2
+text = "Question Bank"
+
+[node name="lblSubtitle" type="Label" parent="MainLayout/ContentMargin/ContentLayout/Header/HeaderText" unique_id=259470348]
+layout_mode = 2
+text = "Create and organize your study questions"
+
+[node name="btnAddQuestion" type="Button" parent="MainLayout/ContentMargin/ContentLayout/Header/HeaderText" unique_id=1817606077]
+layout_mode = 2
+text = "+ Add Questions"
+
+[node name="LibraryTabs" type="HBoxContainer" parent="MainLayout/ContentMargin/ContentLayout" unique_id=60271000]
+layout_mode = 2
+
+[node name="btnMyQuestions" type="Button" parent="MainLayout/ContentMargin/ContentLayout/LibraryTabs" unique_id=294626655]
+layout_mode = 2
+text = "My Questions"
+
+[node name="btnPublicLibrary" type="Button" parent="MainLayout/ContentMargin/ContentLayout/LibraryTabs" unique_id=15491331]
+layout_mode = 2
+text = "Public Library"
+
+[node name="btnTeamQuestions" type="Button" parent="MainLayout/ContentMargin/ContentLayout/LibraryTabs" unique_id=1465855544]
+layout_mode = 2
+text = "Team Questions"
+
+[node name="FilterPanel" type="PanelContainer" parent="MainLayout/ContentMargin/ContentLayout" unique_id=1619939577]
+layout_mode = 2
+
+[node name="FilterMargin" type="MarginContainer" parent="MainLayout/ContentMargin/ContentLayout/FilterPanel" unique_id=12585935]
+layout_mode = 2
+
+[node name="FilterLayout" type="HBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/FilterPanel/FilterMargin" unique_id=1583949489]
+layout_mode = 2
+
+[node name="txtSearch" type="LineEdit" parent="MainLayout/ContentMargin/ContentLayout/FilterPanel/FilterMargin/FilterLayout" unique_id=578267783]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Search questions..."
+
+[node name="optSubject" type="OptionButton" parent="MainLayout/ContentMargin/ContentLayout/FilterPanel/FilterMargin/FilterLayout" unique_id=1289955615]
+layout_mode = 2
+selected = 0
+item_count = 1
+popup/item_0/text = "All Subjects"
+popup/item_0/id = 0
+
+[node name="optDifficulty" type="OptionButton" parent="MainLayout/ContentMargin/ContentLayout/FilterPanel/FilterMargin/FilterLayout" unique_id=1031757583]
+layout_mode = 2
+selected = 0
+item_count = 4
+popup/item_0/text = "Difficulty"
+popup/item_0/id = 0
+popup/item_1/text = "Easy"
+popup/item_1/id = 1
+popup/item_2/text = "Medium"
+popup/item_2/id = 2
+popup/item_3/text = "Hard"
+popup/item_3/id = 3
+
+[node name="optQuestionType" type="OptionButton" parent="MainLayout/ContentMargin/ContentLayout/FilterPanel/FilterMargin/FilterLayout" unique_id=173568223]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "All Types"
+popup/item_0/id = 0
+popup/item_1/text = "Identification"
+popup/item_1/id = 1
+popup/item_2/text = "Multiple Choice"
+popup/item_2/id = 2
+
+[node name="btnResetFilters" type="Button" parent="MainLayout/ContentMargin/ContentLayout/FilterPanel/FilterMargin/FilterLayout" unique_id=295123090]
+layout_mode = 2
+text = "Reset"
+
+[node name="QuestionArea" type="HBoxContainer" parent="MainLayout/ContentMargin/ContentLayout" unique_id=64480624]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuestionListPanel" type="PanelContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea" unique_id=343293445]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="ListMargin" type="MarginContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel" unique_id=1966878214]
+layout_mode = 2
+
+[node name="ListLayout" type="VBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin" unique_id=1965715884]
+layout_mode = 2
+
+[node name="ListHeader" type="HBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout" unique_id=1949022697]
+layout_mode = 2
+
+[node name="lblListTitle" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout/ListHeader" unique_id=461612400]
+layout_mode = 2
+text = "My Questions"
+
+[node name="lblQuestionCount" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout/ListHeader" unique_id=461124792]
+layout_mode = 2
+text = "#_ Questions"
+
+[node name="QuestionScroll" type="ScrollContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout" unique_id=1414680672]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="QuestionRows" type="VBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout/QuestionScroll" unique_id=266177958]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuestionRow" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout/QuestionScroll/QuestionRows" unique_id=1311421363 instance=ExtResource("2_k8t5i")]
+visible = true
+layout_mode = 2
+
+[node name="lblEmptyState" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout" unique_id=2069545640]
+layout_mode = 2
+
+[node name="Pagination" type="HBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout" unique_id=876833427]
+layout_mode = 2
+
+[node name="lblPageInfo" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout/Pagination" unique_id=158288928]
+layout_mode = 2
+text = "Page # of #"
+
+[node name="PageSpacer" type="Control" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout/Pagination" unique_id=765215381]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="btnPreviousPage" type="Button" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout/Pagination" unique_id=1405702064]
+layout_mode = 2
+text = "Prev"
+
+[node name="lblCurrentPage" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout/Pagination" unique_id=1416309703]
+layout_mode = 2
+text = "#"
+
+[node name="btnNextPage" type="Button" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout/Pagination" unique_id=1408256098]
+layout_mode = 2
+text = "Next"
+
+[node name="PreviewPanel" type="PanelContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea" unique_id=281139571]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="PreviewMargin" type="MarginContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel" unique_id=1216711435]
+layout_mode = 2
+
+[node name="PreviewLayout" type="VBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin" unique_id=740904327]
+layout_mode = 2
+
+[node name="lblPreviewTitle" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout" unique_id=262233010]
+layout_mode = 2
+text = "Question Preview"
+
+[node name="PreviewScroll" type="ScrollContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout" unique_id=449479313]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="PreviewContent" type="VBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll" unique_id=1516225590]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Tags" type="HFlowContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent" unique_id=1849345164]
+layout_mode = 2
+
+[node name="lblSubject" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/Tags" unique_id=755278280]
+layout_mode = 2
+text = "[SUBJECT]"
+
+[node name="lblDifficulty" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/Tags" unique_id=115473224]
+layout_mode = 2
+text = "[DIFFICULTY]"
+
+[node name="lblVisibility" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/Tags" unique_id=1106832933]
+layout_mode = 2
+text = "[VISIBILITY]"
+
+[node name="lblQuestionText" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent" unique_id=1479054979]
+layout_mode = 2
+text = "{QUESTION TEXT}"
+
+[node name="Choices" type="VBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent" unique_id=378226952]
+layout_mode = 2
+
+[node name="lblChoiceA" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/Choices" unique_id=1170039146]
+layout_mode = 2
+text = "A. CHOICE A"
+
+[node name="lblChoiceB" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/Choices" unique_id=1511423784]
+layout_mode = 2
+text = "B. CHOICE B"
+
+[node name="lblChoiceC" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/Choices" unique_id=2120670292]
+layout_mode = 2
+text = "C. CHOICE  C"
+
+[node name="lblChoiceD" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/Choices" unique_id=887776269]
+layout_mode = 2
+text = "D. CHOICE D"
+
+[node name="IdentificationAnswer" type="VBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent" unique_id=349396305]
+layout_mode = 2
+
+[node name="lblAnswerHeading" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/IdentificationAnswer" unique_id=375952029]
+layout_mode = 2
+
+[node name="lblCorrectAnswer" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/IdentificationAnswer" unique_id=186615461]
+layout_mode = 2
+text = "Anwer: [CORRECT ANSWER]"
+
+[node name="Metadata" type="VBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent" unique_id=791535639]
+layout_mode = 2
+
+[node name="lblQuestiontype" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/Metadata" unique_id=1154397355]
+layout_mode = 2
+text = "[QUESTION TYPE]"
+
+[node name="lblCreatedBy" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/Metadata" unique_id=2079665484]
+layout_mode = 2
+text = "[CREATED BY]"
+
+[node name="PreviewActions" type="HBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout" unique_id=1182922958]
+layout_mode = 2
+
+[node name="btnEditQuestion" type="Button" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewActions" unique_id=1343242905]
+layout_mode = 2
+text = "Edit"
+
+[node name="btnDeleteQuestion" type="Button" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewActions" unique_id=1568505316]
+layout_mode = 2
+text = "Delete"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=2124652804]
