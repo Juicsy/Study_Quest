@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://d0udu67qbiceb"]
+
+[ext_resource type="Script" uid="uid://ce4elw7m0n8te" path="res://scenes/login/Login.gd" id="1_6irp8"]
+
+[sub_resource type="Gradient" id="Gradient_5leke"]
+colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_npr3q"]
+gradient = SubResource("Gradient_5leke")
+fill_from = Vector2(0.4869565, 0)
+fill_to = Vector2(0.5478261, 1)
+
+[node name="Register" type="Control" unique_id=1419743369]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_6irp8")
+
+[node name="Background" type="TextureRect" parent="." unique_id=1663771154]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_npr3q")
+
+[node name="BackgroundDim" type="ColorRect" parent="." unique_id=1910993411]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="ScreenMargin" type="MarginContainer" parent="." unique_id=1812429115]
+layout_mode = 0
+
+[node name="CenterLayout" type="CenterContainer" parent="ScreenMargin" unique_id=1058142620]
+layout_mode = 2
+
+[node name="TemplatePanel" type="PanelContainer" parent="ScreenMargin/CenterLayout" unique_id=1795228452]
+layout_mode = 2
+
+[node name="TemplateMargin" type="MarginContainer" parent="ScreenMargin/CenterLayout/TemplatePanel" unique_id=1560665063]
+layout_mode = 2
+
+[node name="TemplateLayout" type="VBoxContainer" parent="ScreenMargin/CenterLayout/TemplatePanel/TemplateMargin" unique_id=1505565380]
+layout_mode = 2

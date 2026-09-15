@@ -25,3 +25,11 @@ func _on_btn_login_pressed() -> void:
 	else:
 		print("Login Failed")
 		lbl_error.text = "Login Failed!"
+
+
+func _on_txt_username_text_submitted(new_text: String) -> void:
+	txt_password.grab_focus()
+
+func _on_txt_password_text_submitted(new_text: String) -> void:
+	_on_btn_login_pressed()
+	
