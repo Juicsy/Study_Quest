@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://lwsil7qpr63g"]
 
-[ext_resource type="PackedScene" uid="uid://bh6aandrqcol6" path="res://Scenes/MainMenu/Sidebar.tscn" id="1_dco4k"]
-[ext_resource type="PackedScene" uid="uid://xqjq0gs4yrsg" path="res://Scenes/MainMenu/question_row.tscn" id="2_k8t5i"]
+[ext_resource type="PackedScene" uid="uid://bh6aandrqcol6" path="res://components/sidebar/Sidebar.tscn" id="1_dco4k"]
+[ext_resource type="PackedScene" uid="uid://xqjq0gs4yrsg" path="res://scenes/question_bank/question_row.tscn" id="2_k8t5i"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
 colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)

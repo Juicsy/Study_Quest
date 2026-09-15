@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bh6aandrqcol6"]
 
-[ext_resource type="Texture2D" uid="uid://ck8vxyjmjhjb6" path="res://asss/SwordShield.png" id="1_vome6"]
+[ext_resource type="Script" uid="uid://cawphxp4kk3ad" path="res://components/sidebar/Sidebar.gd" id="1_umq33"]
+[ext_resource type="Texture2D" uid="uid://ck8vxyjmjhjb6" path="res://assets/icons/SwordShield.png" id="2_dpic5"]
 
 [node name="Sidebar" type="PanelContainer" unique_id=1952958877]
 custom_minimum_size = Vector2(220, 0)
@@ -8,6 +9,7 @@ anchors_preset = 9
 anchor_bottom = 1.0
 offset_right = 231.0
 grow_vertical = 2
+script = ExtResource("1_umq33")
 
 [node name="SidebarMargin" type="MarginContainer" parent="." unique_id=978582320]
 layout_mode = 2
@@ -20,9 +22,11 @@ theme_override_constants/margin_bottom = 25
 layout_mode = 2
 
 [node name="Logo" type="TextureRect" parent="SidebarMargin/SidebarLayout" unique_id=1290305685]
-custom_maximum_size = Vector2(50, 50)
+custom_maximum_size = Vector2(181, 50)
 layout_mode = 2
-texture = ExtResource("1_vome6")
+size_flags_vertical = 3
+texture = ExtResource("2_dpic5")
+stretch_mode = 5
 
 [node name="lblAppName" type="Label" parent="SidebarMargin/SidebarLayout" unique_id=1331467139]
 layout_mode = 2
@@ -67,3 +71,11 @@ text = "Settings"
 [node name="btnLogout" type="Button" parent="SidebarMargin/SidebarLayout" unique_id=679545]
 layout_mode = 2
 text = "Logout"
+
+[connection signal="button_down" from="SidebarMargin/SidebarLayout/Navigation/btnDashboard" to="." method="_on_btn_dashboard_button_down"]
+[connection signal="button_down" from="SidebarMargin/SidebarLayout/Navigation/btnSolo" to="." method="_on_btn_solo_button_down"]
+[connection signal="button_down" from="SidebarMargin/SidebarLayout/Navigation/btnMultiplayer" to="." method="_on_btn_multiplayer_button_down"]
+[connection signal="button_down" from="SidebarMargin/SidebarLayout/Navigation/btnQuestionBank" to="." method="_on_btn_question_bank_button_down"]
+[connection signal="button_down" from="SidebarMargin/SidebarLayout/Navigation/btnLeaderboard" to="." method="_on_btn_leaderboard_button_down"]
+[connection signal="button_down" from="SidebarMargin/SidebarLayout/Navigation/btnHistory" to="." method="_on_btn_history_button_down"]
+[connection signal="button_down" from="SidebarMargin/SidebarLayout/btnLogout" to="." method="_on_btn_logout_button_down"]

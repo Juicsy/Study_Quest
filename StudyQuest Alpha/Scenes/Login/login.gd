@@ -1,20 +1,27 @@
 extends Control
 
-signal LoginUser(user, password)
-signal CreateUser(user, password)
+@onready var txt_username: LineEdit = $ScreenMargin/CenterLayout/LoginPanel/LoginMargin/LoginLayout/UsernameSection/txtUsername
+@onready var txt_password: LineEdit = $ScreenMargin/CenterLayout/LoginPanel/LoginMargin/LoginLayout/PasswordSection/txtPassword
+@onready var lbl_error: Label = $ScreenMargin/CenterLayout/LoginPanel/LoginMargin/LoginLayout/lblError
 
-@export var Register: PackedScene
+var username = "test"
+var password = "123"
 
-func _on_create_user_button_down() -> void:
-	var register = Register.instantiate()
-	add_child(register)
-	register.CreateUser.connect(createUser)
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
 	pass
 
-func createUser(name, password):
-	CreateUser.emit(name, password)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
 	pass
-	
-func _on_login_button_down() -> void:
-	LoginUser.emit($VBoxContainer/HBoxContainer/Username.text ,$VBoxContainer/HBoxContainer2/Password.text)
-	pass # Replace with function body.
+
+func _on_chk_show_password_toggled(toggled_on: bool) -> void:
+	txt_password.secret = not toggled_on
+
+func _on_btn_login_pressed() -> void:
+	if txt_username.text == username and txt_password.text == password:
+		print("Login Successful!")
+		get_tree().change_scene_to_file("res://scenes/dashboard/Dashboard.tscn")
+	else:
+		print("Login Failed")
+		lbl_error.text = "Login Failed!"

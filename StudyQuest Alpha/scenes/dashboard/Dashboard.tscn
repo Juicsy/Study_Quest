@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bq1m3megoxn7f"]
 
-[ext_resource type="PackedScene" uid="uid://bh6aandrqcol6" path="res://Scenes/MainMenu/Sidebar.tscn" id="1_oa1no"]
-[ext_resource type="Texture2D" uid="uid://bhoscqbnslye6" path="res://icon.svg" id="2_oa1no"]
+[ext_resource type="Script" uid="uid://bqex1tndyb7mq" path="res://scenes/dashboard/dashboard.gd" id="1_vhufs"]
+[ext_resource type="PackedScene" uid="uid://bh6aandrqcol6" path="res://components/sidebar/Sidebar.tscn" id="2_vi7br"]
+[ext_resource type="Texture2D" uid="uid://bhoscqbnslye6" path="res://icon.svg" id="5_kwp1d"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
 colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)
@@ -20,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_vhufs")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1663771154]
 layout_mode = 1
@@ -49,7 +51,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Sidebar" parent="MainLayout" unique_id=1952958877 instance=ExtResource("1_oa1no")]
+[node name="Sidebar" parent="MainLayout" unique_id=1952958877 instance=ExtResource("2_vi7br")]
 layout_mode = 2
 
 [node name="ContentMargin" type="MarginContainer" parent="MainLayout" unique_id=1221522050]
@@ -94,7 +96,11 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="StreakIcon" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar/StreakPanel/StreakLayout" unique_id=1105604137]
+custom_maximum_size = Vector2(30, 30)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_kwp1d")
 
 [node name="lblStreak" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar/StreakPanel/StreakLayout" unique_id=1089242801]
 layout_mode = 2
@@ -107,7 +113,11 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="PointsIcon" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar/PointsPanel/PointsLayout" unique_id=896563369]
+custom_maximum_size = Vector2(30, 30)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("5_kwp1d")
 
 [node name="lblPoints" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/Topbar/PointsPanel/PointsLayout" unique_id=34557224]
 layout_mode = 2
@@ -135,8 +145,11 @@ theme_override_constants/margin_bottom = 6
 layout_mode = 2
 
 [node name="SoloArtwork" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/SoloCard/SoloMargin/SoloLayout" unique_id=1248839982]
+custom_minimum_size = Vector2(0, 200)
+custom_maximum_size = Vector2(-1, 200)
 layout_mode = 2
-texture = ExtResource("2_oa1no")
+texture = ExtResource("5_kwp1d")
+stretch_mode = 6
 
 [node name="lblSoloTitle" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/SoloCard/SoloMargin/SoloLayout" unique_id=649621186]
 layout_mode = 2
@@ -169,8 +182,11 @@ theme_override_constants/margin_bottom = 6
 layout_mode = 2
 
 [node name="MultiplayerArtwork" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/MultiplayerCard/MultiplayerMargin/MultiplayerLayout" unique_id=718493100]
+custom_minimum_size = Vector2(0, 200)
+custom_maximum_size = Vector2(-1, 200)
 layout_mode = 2
-texture = ExtResource("2_oa1no")
+texture = ExtResource("5_kwp1d")
+stretch_mode = 6
 
 [node name="lblMultiplayerTitle" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/MultiplayerCard/MultiplayerMargin/MultiplayerLayout" unique_id=1202778424]
 layout_mode = 2
@@ -280,17 +296,17 @@ layout_mode = 2
 [node name="BadgeOne" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard/BadgesMargin/BadgesLayout/BadgeList" unique_id=1282882696]
 custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
-texture = ExtResource("2_oa1no")
+texture = ExtResource("5_kwp1d")
 
 [node name="BadgeTwo" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard/BadgesMargin/BadgesLayout/BadgeList" unique_id=616084587]
 custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
-texture = ExtResource("2_oa1no")
+texture = ExtResource("5_kwp1d")
 
 [node name="BadgeThree" type="TextureRect" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard/BadgesMargin/BadgesLayout/BadgeList" unique_id=597451923]
 custom_maximum_size = Vector2(100, 100)
 layout_mode = 2
-texture = ExtResource("2_oa1no")
+texture = ExtResource("5_kwp1d")
 
 [node name="lblBadgeSummary" type="Label" parent="MainLayout/ContentMargin/DashboardScroll/ContentLayout/JourneyCards/BadgesCard/BadgesMargin/BadgesLayout" unique_id=1684284967]
 layout_mode = 2
@@ -302,3 +318,5 @@ layout_mode = 2
 text = "View Achievements"
 
 [node name="LogoutConfirmation" type="ConfirmationDialog" parent="." unique_id=335789646]
+
+[connection signal="button_down" from="MainLayout/ContentMargin/DashboardScroll/ContentLayout/ModeCards/SoloCard/SoloMargin/SoloLayout/btnSolo" to="." method="_on_btn_solo_button_down"]
