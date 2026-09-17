@@ -28,27 +28,7 @@ extends Control
 const SOLO_SETUP_PATH: String = "res://scenes/solo/SoloSetup.tscn"
 const QUESTION_SECONDS: float = 30.0
 
-var questions: Array[Dictionary] = [
-	{
-		"type": "MultipleChoice",
-		"question": "What is the derivative of x²?",
-		"choices": ["x", "2x", "x²", "2"],
-		"correct_index": 1,
-		"answer": "2x"
-	},
-	{
-		"type": "MultipleChoice",
-		"question": "What is the value of 5²?",
-		"choices": ["10", "15", "25", "50"],
-		"correct_index": 2,
-		"answer": "25"
-	},
-	{
-		"type": "Identification",
-		"question": "What is the name of a polygon with three sides?",
-		"answer": "Triangle"
-	}
-]
+var questions: Array[Dictionary] = []
 
 var option_buttons: Array[Button] = []
 var current_index: int = 0
@@ -61,6 +41,25 @@ var exit_pending: bool = false
 
 
 func _ready() -> void:
+	questions = StudySession.get_questions("Quiz")
+
+	if questions.is_empty():
+		finished = true
+		question_timer.stop()
+		lbl_feedback.text = "No quiz selected. Return to Solo Setup."
+
+		btn_submit.disabled = true
+		btn_next.disabled = true
+		btn_option_a.disabled = true
+		btn_option_b.disabled = true
+		btn_option_c.disabled = true
+		btn_option_d.disabled = true
+		txt_answer.editable = false
+
+		btn_exit.text = "Back to Solo Setup"
+		btn_exit.pressed.connect(return_to_setup)
+		return
+	
 	QuizSession.clear_result()
 	option_buttons = [
 		btn_option_a,
@@ -93,7 +92,7 @@ func _ready() -> void:
 	exit_confirmation.canceled.connect(_on_exit_canceled)
 
 	lbl_title.text = "Quiz"
-	lbl_subject.text = "Math • Easy"
+	lbl_subject.text = StudySession.subject_label()
 	lbl_answer_prompt.text = "Your answer"
 	btn_exit.text = "Exit Quiz"
 	btn_submit.text = "Submit Answer"

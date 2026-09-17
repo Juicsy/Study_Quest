@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ba3tgbtc1wov4"]
 
 [ext_resource type="PackedScene" uid="uid://bh6aandrqcol6" path="res://components/sidebar/Sidebar.tscn" id="1_4qn46"]
-[ext_resource type="Script" uid="uid://d1f3bi866onsx" path="res://Scenes/solo/solo_setup.gd" id="1_xydyl"]
+[ext_resource type="Script" uid="uid://bofq6gcvcs1qa" path="res://scenes/solo/SoloSetup.gd" id="1_xydyl"]
 [ext_resource type="Texture2D" uid="uid://bhoscqbnslye6" path="res://icon.svg" id="2_l82yk"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
@@ -182,17 +182,15 @@ text = "Subject"
 
 [node name="optSubject" type="OptionButton" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/SettingsPanel/SettingsMargin/SettingsLayout/SubjectSection" unique_id=1388814203]
 layout_mode = 2
-selected = 3
 item_count = 4
-popup/item_0/text = "Sub1"
+popup/item_0/text = "Math"
 popup/item_0/id = 0
-popup/item_1/text = "Sub2"
+popup/item_1/text = "Science"
 popup/item_1/id = 1
-popup/item_2/text = "Sub3"
+popup/item_2/text = "English"
 popup/item_2/id = 2
-popup/item_3/text = "---"
+popup/item_3/text = "ESP"
 popup/item_3/id = 3
-popup/item_3/disabled = true
 
 [node name="DifficultySection" type="VBoxContainer" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/SettingsPanel/SettingsMargin/SettingsLayout" unique_id=144706819]
 layout_mode = 2
@@ -203,17 +201,13 @@ text = "Difficulty"
 
 [node name="optDifficulty" type="OptionButton" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/SettingsPanel/SettingsMargin/SettingsLayout/DifficultySection" unique_id=582822374]
 layout_mode = 2
-selected = 3
-item_count = 4
+item_count = 3
 popup/item_0/text = "Easy"
 popup/item_0/id = 0
 popup/item_1/text = "Medium"
 popup/item_1/id = 1
 popup/item_2/text = "Hard"
 popup/item_2/id = 2
-popup/item_3/text = "---"
-popup/item_3/id = 3
-popup/item_3/disabled = true
 
 [node name="QuestionCountSection" type="VBoxContainer" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/SettingsPanel/SettingsMargin/SettingsLayout" unique_id=653613347]
 layout_mode = 2
@@ -227,32 +221,26 @@ layout_mode = 2
 min_value = 1.0
 value = 1.0
 
-[node name="lblAvailableQuestions" type="Label" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/SettingsPanel/SettingsMargin" unique_id=1944104626]
-visible = false
+[node name="lblAvailableQuestions" type="Label" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/SettingsPanel/SettingsMargin/SettingsLayout" unique_id=1944104626]
 layout_mode = 2
 text = "Available questions: #"
 
-[node name="lblError" type="Label" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/SettingsPanel/SettingsMargin" unique_id=1903742140]
-visible = false
+[node name="lblError" type="Label" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/SettingsPanel/SettingsMargin/SettingsLayout" unique_id=1903742140]
 custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
 autowrap_mode = 3
 
-[node name="BotomActions" type="HBoxContainer" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout" unique_id=1448709953]
+[node name="BottomActions" type="HBoxContainer" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout" unique_id=1448709953]
 layout_mode = 2
 
-[node name="btnBack" type="Button" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/BotomActions" unique_id=524541130]
+[node name="btnBack" type="Button" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/BottomActions" unique_id=524541130]
 layout_mode = 2
 text = "Back to Dashboard"
 
-[node name="ActionSpacer" type="Control" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/BotomActions" unique_id=1205095204]
+[node name="ActionSpacer" type="Control" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/BottomActions" unique_id=1205095204]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="btnStart" type="Button" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/BotomActions" unique_id=193161227]
+[node name="btnStart" type="Button" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/BottomActions" unique_id=193161227]
 layout_mode = 2
 text = "Start Studying *On until setup is valid*"
-
-[connection signal="button_down" from="MainLayout/ContentMargin/SetupScroll/ContentLayout/GameTypeCards/FlashcardsCard/FlashcardsMargin/FlashcardsLayout/btnFlashcards" to="." method="_on_btn_flashcards_button_down"]
-[connection signal="button_down" from="MainLayout/ContentMargin/SetupScroll/ContentLayout/GameTypeCards/QuizCard/QuizMargin/QuizLayout/btnQuiz" to="." method="_on_btn_quiz_button_down"]
-[connection signal="button_down" from="MainLayout/ContentMargin/SetupScroll/ContentLayout/BotomActions/btnBack" to="." method="_on_btn_back_button_down"]

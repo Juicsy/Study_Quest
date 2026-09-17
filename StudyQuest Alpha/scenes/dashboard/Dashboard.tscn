@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bq1m3megoxn7f"]
 
-[ext_resource type="Script" uid="uid://bqex1tndyb7mq" path="res://scenes/dashboard/dashboard.gd" id="1_vhufs"]
+[ext_resource type="Script" uid="uid://dy5304cmrfee" path="res://scenes/dashboard/Dashboard.gd" id="1_2f884"]
 [ext_resource type="PackedScene" uid="uid://bh6aandrqcol6" path="res://components/sidebar/Sidebar.tscn" id="2_vi7br"]
 [ext_resource type="Texture2D" uid="uid://bhoscqbnslye6" path="res://icon.svg" id="5_kwp1d"]
 
@@ -21,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_vhufs")
+script = ExtResource("1_2f884")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1663771154]
 layout_mode = 1

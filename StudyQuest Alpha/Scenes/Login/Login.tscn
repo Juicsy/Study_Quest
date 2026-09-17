@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://h0ph1vfpaqa2"]
 
-[ext_resource type="Script" uid="uid://ce4elw7m0n8te" path="res://Scenes/Login/login.gd" id="1_i1njh"]
+[ext_resource type="Script" uid="uid://b1li0jpxs0ytw" path="res://scenes/Login/Login.gd" id="1_h4wbb"]
 [ext_resource type="Texture2D" uid="uid://ck8vxyjmjhjb6" path="res://assets/icons/SwordShield.png" id="2_fj0rs"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_i1njh")
+script = ExtResource("1_h4wbb")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1663771154]
 layout_mode = 1
@@ -158,7 +158,16 @@ layout_mode = 2
 text = "Create Account"
 flat = true
 
+[node name="AdminLoginBypass" type="Button" parent="." unique_id=241461190]
+layout_mode = 0
+offset_left = 1109.0
+offset_top = 25.0
+offset_right = 1245.0
+offset_bottom = 73.0
+text = "Bypass Login"
+
 [connection signal="text_submitted" from="ScreenMargin/CenterLayout/LoginPanel/LoginMargin/LoginLayout/UsernameSection/txtUsername" to="." method="_on_txt_username_text_submitted"]
 [connection signal="text_submitted" from="ScreenMargin/CenterLayout/LoginPanel/LoginMargin/LoginLayout/PasswordSection/txtPassword" to="." method="_on_txt_password_text_submitted"]
 [connection signal="toggled" from="ScreenMargin/CenterLayout/LoginPanel/LoginMargin/LoginLayout/PasswordSection/chkShowPassword" to="." method="_on_chk_show_password_toggled"]
 [connection signal="pressed" from="ScreenMargin/CenterLayout/LoginPanel/LoginMargin/LoginLayout/btnLogin" to="." method="_on_btn_login_pressed"]
+[connection signal="button_down" from="AdminLoginBypass" to="." method="_on_admin_login_bypass_button_down"]

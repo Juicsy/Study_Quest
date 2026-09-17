@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dpi2uvd2nywur"]
 
-[ext_resource type="Script" uid="uid://dn8t30ylm66hf" path="res://Scenes/gameplay/flashcards/flashcards.gd" id="1_57ccq"]
+[ext_resource type="Script" uid="uid://7d6bc7xh77xj" path="res://scenes/gameplay/flashcards/Flashcards.gd" id="1_57ccq"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
 colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)

@@ -10,41 +10,40 @@ extends Control
 @onready var btn_next: Button = $ScreenMargin/MainLayout/Navigation/btnNext
 @onready var exit_confirmation: ConfirmationDialog = $ExitConfirmation
 
-var cards: Array[Dictionary] = [
-	{
-		"question": "1+2 = ",
-		"answer": "2"
-	},
-	{
-		"question": "What is the derivative of x? [Long Question Test][Long Question Test][Long Question Test]
-		[Long Question Test][Long Question Test][Long Question Test]
-		[Long Question Test][Long Question Test][Long Question Test][Long Question Test][Long Question Test][Long Question Test]
-		[Long Question Test][Long Question Test][Long Question Test][Long Question Test][Long Question Test][Long Question Test]
-		[Long Question Test][Long Question Test][Long Question Test][Long Question Test][Long Question Test][Long Question Test]
-		[Long Question Test][Long Question Test][Long Question Test][Long Question Test][Long Question Test][Long Question Test]
-		[Long Question Test][Long Question Test][Long Question Test][Long Question Test][Long Question Test][Long Question Test]
-		[Long Question Test][Long Question Test][Long Question Test][Long Question Test][Long Question Test][Long Question Test]",
-		"answer": "1"
-	},
-	{
-		"question": "What is the value of 5²?",
-		"answer": "25"
-	}
-]
+var cards: Array[Dictionary] = []
 
 var current_index: int = 0
 var showing_answer: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	cards = StudySession.get_questions("Flashcards")
+	current_index = 0
+	showing_answer = false
+
+	$ScreenMargin/MainLayout/Header/TitleSection/lblSubject.text = (
+		StudySession.subject_label()
+	)
+
 	study_progress.min_value = 0
-	study_progress.max_value = cards.size()
+	study_progress.max_value = maxi(cards.size(), 1)
 	study_progress.show_percentage = false
 
 	exit_confirmation.dialog_text = "Leave this flashcard session?"
 
 	if not exit_confirmation.confirmed.is_connected(_on_exit_confirmed):
 		exit_confirmation.confirmed.connect(_on_exit_confirmed)
+
+	if cards.is_empty():
+		lbl_card_content.text = "No flashcards selected."
+		lbl_card_side.text = "FLASHCARDS"
+		lbl_hint.text = "Exit and choose your settings in Solo Setup."
+		lbl_progress.text = "Card 0 of 0"
+		study_progress.value = 0
+		btn_previous.disabled = true
+		btn_next.disabled = true
+		btn_reveal.disabled = true
+		return
 
 	show_card()
 

@@ -1,17 +1,9 @@
 [gd_scene format=3 uid="uid://b0dlbwyx2gddf"]
 
-[ext_resource type="Script" path="res://scenes/login/Login.gd" id="1_ruscp"]
+[ext_resource type="Script" uid="uid://da7uwibwqab3n" path="res://components/question_row/QuestionRow.gd" id="1_mfrsn"]
 
-[sub_resource type="Gradient" id="Gradient_5leke"]
-colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_npr3q"]
-gradient = SubResource("Gradient_5leke")
-fill_from = Vector2(0.4869565, 0)
-fill_to = Vector2(0.5478261, 1)
-
-[node name="Register" type="Control" unique_id=1419743369]
-layout_mode = 3
+[node name="QuestionRow" type="Button" unique_id=948638991]
+custom_minimum_size = Vector2(0, 100)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -19,9 +11,10 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_ruscp")
+toggle_mode = true
+script = ExtResource("1_mfrsn")
 
-[node name="Background" type="TextureRect" parent="." unique_id=1663771154]
+[node name="RowMargin" type="MarginContainer" parent="." unique_id=584776850]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,29 +22,57 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = SubResource("GradientTexture2D_npr3q")
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
 
-[node name="BackgroundDim" type="ColorRect" parent="." unique_id=1910993411]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="RowLayout" type="HBoxContainer" parent="RowMargin" unique_id=181636123]
+layout_mode = 2
 mouse_filter = 2
-color = Color(1, 1, 1, 0)
+theme_override_constants/separation = 12
 
-[node name="ScreenMargin" type="MarginContainer" parent="." unique_id=1812429115]
-layout_mode = 0
-
-[node name="CenterLayout" type="CenterContainer" parent="ScreenMargin" unique_id=1058142620]
+[node name="SubjectIcon" type="TextureRect" parent="RowMargin/RowLayout" unique_id=1642019304]
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5
 
-[node name="TemplatePanel" type="PanelContainer" parent="ScreenMargin/CenterLayout" unique_id=1795228452]
+[node name="QuestionInfo" type="VBoxContainer" parent="RowMargin/RowLayout" unique_id=1548921474]
 layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
 
-[node name="TemplateMargin" type="MarginContainer" parent="ScreenMargin/CenterLayout/TemplatePanel" unique_id=1560665063]
+[node name="lblQuestionText" type="Label" parent="RowMargin/RowLayout/QuestionInfo" unique_id=1350248609]
+custom_minimum_size = Vector2(1, 1)
 layout_mode = 2
+text = "[QUESTION TEXT]"
+autowrap_mode = 3
 
-[node name="TemplateLayout" type="VBoxContainer" parent="ScreenMargin/CenterLayout/TemplatePanel/TemplateMargin" unique_id=1505565380]
+[node name="Tags" type="HFlowContainer" parent="RowMargin/RowLayout/QuestionInfo" unique_id=1292107124]
 layout_mode = 2
+mouse_filter = 2
+
+[node name="lblSubject" type="Label" parent="RowMargin/RowLayout/QuestionInfo/Tags" unique_id=1999898176]
+layout_mode = 2
+text = "[SUBJECT]"
+
+[node name="lblDifficulty" type="Label" parent="RowMargin/RowLayout/QuestionInfo/Tags" unique_id=689254754]
+layout_mode = 2
+text = "[DIFFICULTY]"
+
+[node name="lblQuestionType" type="Label" parent="RowMargin/RowLayout/QuestionInfo/Tags" unique_id=1224515560]
+layout_mode = 2
+text = "[QUESTION TYPE]"
+
+[node name="lblVisibility" type="Label" parent="RowMargin/RowLayout/QuestionInfo/Tags" unique_id=1384068306]
+layout_mode = 2
+text = "[VISIBILITY]"
+
+[node name="Arrow Icon" type="TextureRect" parent="RowMargin/RowLayout" unique_id=749767115]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+stretch_mode = 5

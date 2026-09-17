@@ -19,7 +19,10 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+QuestionStore="*uid://wfg5tni2seol"
 QuizSession="*uid://77b3mww7igxf"
+MockAuth="*uid://db0vx03q87tcb"
+StudySession="*uid://bjo60u2emdnnu"
 
 [display]
 
@@ -35,24 +38,25 @@ project/assembly_name="Try1"
 [file_customization]
 
 folder_colors={
-"res://Scenes/": "gray",
-"res://Scenes/Login/": "green",
-"res://Scenes/dashboard/": "green",
-"res://Scenes/gameplay/": "green",
-"res://Scenes/gameplay/flashcards/": "green",
-"res://Scenes/gameplay/quiz/": "green",
-"res://Scenes/gameplay/results/": "green",
-"res://Scenes/question_bank/": "yellow",
-"res://Scenes/solo/": "green",
 "res://assets/": "purple",
 "res://autoload/": "purple",
 "res://backend/": "purple",
 "res://components/": "red",
 "res://components/badge/": "gray",
-"res://components/question_row/": "gray",
+"res://components/question_row/": "green",
 "res://components/sidebar/": "red",
 "res://docs/": "purple",
 "res://prototype/": "purple",
+"res://scenes/": "gray",
+"res://scenes/Login/": "green",
+"res://scenes/dashboard/": "green",
+"res://scenes/gameplay/": "green",
+"res://scenes/gameplay/flashcards/": "green",
+"res://scenes/gameplay/quiz/": "green",
+"res://scenes/gameplay/results/": "green",
+"res://scenes/question_bank/": "green",
+"res://scenes/register/": "green",
+"res://scenes/solo/": "green",
 "res://themes/": "purple"
 }
 

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d12s3npwksirr"]
 
-[ext_resource type="Script" uid="uid://ccimud2hl8t4s" path="res://Scenes/gameplay/quiz/Quiz.gd" id="1_calp0"]
+[ext_resource type="Script" uid="uid://ccimud2hl8t4s" path="res://scenes/gameplay/quiz/Quiz.gd" id="1_calp0"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
 colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)

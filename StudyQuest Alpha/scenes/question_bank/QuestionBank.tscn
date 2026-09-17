@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://lwsil7qpr63g"]
 
+[ext_resource type="Script" uid="uid://blo1wa8ykqjjk" path="res://scenes/question_bank/QuestionBank.gd" id="1_7nd0t"]
 [ext_resource type="PackedScene" uid="uid://bh6aandrqcol6" path="res://components/sidebar/Sidebar.tscn" id="1_dco4k"]
-[ext_resource type="PackedScene" uid="uid://xqjq0gs4yrsg" path="res://scenes/question_bank/question_row.tscn" id="2_k8t5i"]
+[ext_resource type="PackedScene" uid="uid://b0dlbwyx2gddf" path="res://components/question_row/QuestionRow.tscn" id="2_02i6p"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
 colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)
@@ -20,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_7nd0t")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1663771154]
 layout_mode = 1
@@ -81,7 +83,7 @@ text = "Question Bank"
 layout_mode = 2
 text = "Create and organize your study questions"
 
-[node name="btnAddQuestion" type="Button" parent="MainLayout/ContentMargin/ContentLayout/Header/HeaderText" unique_id=1817606077]
+[node name="btnAddQuestion" type="Button" parent="MainLayout/ContentMargin/ContentLayout/Header" unique_id=1817606077]
 layout_mode = 2
 text = "+ Add Questions"
 
@@ -184,9 +186,9 @@ horizontal_scroll_mode = 0
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="QuestionRow" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout/QuestionScroll/QuestionRows" unique_id=1311421363 instance=ExtResource("2_k8t5i")]
-visible = true
+[node name="QuestionRow" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout/QuestionScroll/QuestionRows" unique_id=948638991 instance=ExtResource("2_02i6p")]
 layout_mode = 2
+script = null
 
 [node name="lblEmptyState" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/QuestionListPanel/ListMargin/ListLayout" unique_id=2069545640]
 layout_mode = 2
@@ -289,7 +291,7 @@ text = "Anwer: [CORRECT ANSWER]"
 [node name="Metadata" type="VBoxContainer" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent" unique_id=791535639]
 layout_mode = 2
 
-[node name="lblQuestiontype" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/Metadata" unique_id=1154397355]
+[node name="lblQuestionType" type="Label" parent="MainLayout/ContentMargin/ContentLayout/QuestionArea/PreviewPanel/PreviewMargin/PreviewLayout/PreviewScroll/PreviewContent/Metadata" unique_id=1154397355]
 layout_mode = 2
 text = "[QUESTION TYPE]"
 
@@ -308,4 +310,4 @@ text = "Edit"
 layout_mode = 2
 text = "Delete"
 
-[node name="ConfirmationDialog" type="ConfirmationDialog" parent="." unique_id=2124652804]
+[node name="DeleteConfirmation" type="ConfirmationDialog" parent="." unique_id=2124652804]

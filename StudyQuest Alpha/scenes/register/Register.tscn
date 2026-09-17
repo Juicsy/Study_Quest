@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bithmri3lq3ya"]
 
-[ext_resource type="Script" path="res://scenes/login/Login.gd" id="1_5ykx6"]
+[ext_resource type="Script" uid="uid://b3nbfum6vu5km" path="res://scenes/register/Register.gd" id="1_5ykx6"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
 colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)
@@ -42,16 +42,148 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [node name="ScreenMargin" type="MarginContainer" parent="." unique_id=1812429115]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
-[node name="CenterLayout" type="CenterContainer" parent="ScreenMargin" unique_id=1058142620]
+[node name="RegisterScroll" type="ScrollContainer" parent="ScreenMargin" unique_id=2062077913]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="CenterLayout" type="CenterContainer" parent="ScreenMargin/RegisterScroll" unique_id=373988935]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RegisterPanel" type="PanelContainer" parent="ScreenMargin/RegisterScroll/CenterLayout" unique_id=1090003645]
+custom_minimum_size = Vector2(460, 0)
 layout_mode = 2
 
-[node name="TemplatePanel" type="PanelContainer" parent="ScreenMargin/CenterLayout" unique_id=1795228452]
+[node name="RegisterMargin" type="MarginContainer" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel" unique_id=1068083211]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="RegisterLayout" type="VBoxContainer" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin" unique_id=1306621208]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="lblTitle" type="Label" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout" unique_id=1493035911]
+layout_mode = 2
+text = "CREATE ACCOUNT"
+horizontal_alignment = 1
+
+[node name="lblSubtitle" type="Label" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout" unique_id=1838862256]
+layout_mode = 2
+text = "Start your Study Quest journey."
+horizontal_alignment = 1
+
+[node name="NameRow" type="HBoxContainer" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout" unique_id=1248617558]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="FirstNameSection" type="VBoxContainer" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/NameRow" unique_id=1271652668]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lblFirstName" type="Label" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/NameRow/FirstNameSection" unique_id=394858752]
+layout_mode = 2
+text = "First Name"
+
+[node name="txtFirstName" type="LineEdit" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/NameRow/FirstNameSection" unique_id=2084907936]
 layout_mode = 2
 
-[node name="TemplateMargin" type="MarginContainer" parent="ScreenMargin/CenterLayout/TemplatePanel" unique_id=1560665063]
+[node name="LastNameSection" type="VBoxContainer" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/NameRow" unique_id=350709607]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lblLastName" type="Label" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/NameRow/LastNameSection" unique_id=1956667241]
+layout_mode = 2
+text = "Last Name"
+
+[node name="txtLastName" type="LineEdit" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/NameRow/LastNameSection" unique_id=202484013]
 layout_mode = 2
 
-[node name="TemplateLayout" type="VBoxContainer" parent="ScreenMargin/CenterLayout/TemplatePanel/TemplateMargin" unique_id=1505565380]
+[node name="UsernameSection" type="VBoxContainer" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout" unique_id=1758481859]
 layout_mode = 2
+
+[node name="lblUsername" type="Label" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/UsernameSection" unique_id=230235364]
+layout_mode = 2
+text = "Username"
+
+[node name="txtUsername" type="LineEdit" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/UsernameSection" unique_id=1038437434]
+layout_mode = 2
+
+[node name="EmailSection" type="VBoxContainer" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout" unique_id=309971407]
+layout_mode = 2
+
+[node name="lblEmail" type="Label" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/EmailSection" unique_id=237552202]
+layout_mode = 2
+text = "Email"
+
+[node name="txtEmail" type="LineEdit" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/EmailSection" unique_id=1711471704]
+layout_mode = 2
+
+[node name="PasswordSection" type="VBoxContainer" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout" unique_id=1653787224]
+layout_mode = 2
+
+[node name="lblPassword" type="Label" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/PasswordSection" unique_id=419015280]
+layout_mode = 2
+text = "Password"
+
+[node name="txtPassword" type="LineEdit" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/PasswordSection" unique_id=178196332]
+layout_mode = 2
+secret = true
+
+[node name="ConfirmPasswordSection" type="VBoxContainer" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout" unique_id=2029733579]
+layout_mode = 2
+
+[node name="lblConfirmPassword" type="Label" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/ConfirmPasswordSection" unique_id=593071670]
+layout_mode = 2
+text = "Confirm Password"
+
+[node name="txtConfirmPassword" type="LineEdit" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/ConfirmPasswordSection" unique_id=1066246071]
+layout_mode = 2
+secret = true
+
+[node name="chkShowPassword" type="CheckBox" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout" unique_id=2092810839]
+layout_mode = 2
+text = "Show passwords"
+
+[node name="lblError" type="Label" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout" unique_id=842849739]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="btnRegister" type="Button" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout" unique_id=367315689]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Create Account"
+
+[node name="LoginSection" type="HBoxContainer" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout" unique_id=1310182813]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="lblHaveAccount" type="Label" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/LoginSection" unique_id=1007317518]
+layout_mode = 2
+text = "Already have an account?"
+
+[node name="btnBack" type="Button" parent="ScreenMargin/RegisterScroll/CenterLayout/RegisterPanel/RegisterMargin/RegisterLayout/LoginSection" unique_id=1259991382]
+layout_mode = 2
+text = "Log In"
+flat = true
+
+[node name="RegistrationSuccess" type="AcceptDialog" parent="." unique_id=247535213]
+dialog_text = "Account created. You can now log in."
+
+[node name="DiscardConfirmation" type="ConfirmationDialog" parent="." unique_id=1847834183]
+dialog_text = "Discard your registration details?"
