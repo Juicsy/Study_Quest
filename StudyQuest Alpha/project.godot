@@ -17,6 +17,10 @@ boot_splash/bg_color=Color(9.987131e-07, 0.3886813, 0.22000298, 1)
 boot_splash/show_image=false
 config/icon="res://icon.svg"
 
+[autoload]
+
+QuizSession="*uid://77b3mww7igxf"
+
 [display]
 
 window/size/viewport_width=1280
@@ -27,6 +31,30 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="Try1"
+
+[file_customization]
+
+folder_colors={
+"res://Scenes/": "gray",
+"res://Scenes/Login/": "green",
+"res://Scenes/dashboard/": "green",
+"res://Scenes/gameplay/": "green",
+"res://Scenes/gameplay/flashcards/": "green",
+"res://Scenes/gameplay/quiz/": "green",
+"res://Scenes/gameplay/results/": "green",
+"res://Scenes/question_bank/": "yellow",
+"res://Scenes/solo/": "green",
+"res://assets/": "purple",
+"res://autoload/": "purple",
+"res://backend/": "purple",
+"res://components/": "red",
+"res://components/badge/": "gray",
+"res://components/question_row/": "gray",
+"res://components/sidebar/": "red",
+"res://docs/": "purple",
+"res://prototype/": "purple",
+"res://themes/": "purple"
+}
 
 [physics]
 

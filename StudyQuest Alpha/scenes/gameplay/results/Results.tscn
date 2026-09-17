@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ct6wbatjrf6vv"]
 
-[ext_resource type="Script" uid="uid://ce4elw7m0n8te" path="res://scenes/login/Login.gd" id="1_ny2nj"]
+[ext_resource type="Script" uid="uid://c7nmgaq2xyhhg" path="res://Scenes/gameplay/results/Results.gd" id="1_c61lh"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
 colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)
@@ -10,7 +10,7 @@ gradient = SubResource("Gradient_5leke")
 fill_from = Vector2(0.4869565, 0)
 fill_to = Vector2(0.5478261, 1)
 
-[node name="Register" type="Control" unique_id=1419743369]
+[node name="Results" type="Control" unique_id=1419743369]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_ny2nj")
+script = ExtResource("1_c61lh")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1663771154]
 layout_mode = 1
@@ -42,16 +42,136 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [node name="ScreenMargin" type="MarginContainer" parent="." unique_id=1812429115]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="CenterLayout" type="CenterContainer" parent="ScreenMargin" unique_id=1058142620]
+[node name="ResultsScroll" type="ScrollContainer" parent="ScreenMargin" unique_id=1129558819]
 layout_mode = 2
 
-[node name="TemplatePanel" type="PanelContainer" parent="ScreenMargin/CenterLayout" unique_id=1795228452]
+[node name="MainLayout" type="VBoxContainer" parent="ScreenMargin/ResultsScroll" unique_id=1211870161]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="Header" type="VBoxContainer" parent="ScreenMargin/ResultsScroll/MainLayout" unique_id=536029804]
 layout_mode = 2
 
-[node name="TemplateMargin" type="MarginContainer" parent="ScreenMargin/CenterLayout/TemplatePanel" unique_id=1560665063]
+[node name="lblTitle" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout/Header" unique_id=390712251]
+layout_mode = 2
+text = "Quiz Complete!"
+
+[node name="lblSubtitle" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout/Header" unique_id=658986580]
+layout_mode = 2
+text = "Every attempt helps you learn."
+
+[node name="lblSubject" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout/Header" unique_id=194059350]
+layout_mode = 2
+text = "[SUBJECT] • [DIFFICULTY]"
+
+[node name="ScorePanel" type="PanelContainer" parent="ScreenMargin/ResultsScroll/MainLayout" unique_id=1181109240]
 layout_mode = 2
 
-[node name="TemplateLayout" type="VBoxContainer" parent="ScreenMargin/CenterLayout/TemplatePanel/TemplateMargin" unique_id=1505565380]
+[node name="ScoreMargin" type="MarginContainer" parent="ScreenMargin/ResultsScroll/MainLayout/ScorePanel" unique_id=287117349]
 layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScroeLayout" type="VBoxContainer" parent="ScreenMargin/ResultsScroll/MainLayout/ScorePanel/ScoreMargin" unique_id=1246887587]
+layout_mode = 2
+
+[node name="lblScoreHeading" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout/ScorePanel/ScoreMargin/ScroeLayout" unique_id=347863786]
+layout_mode = 2
+text = "FINAL SCORE"
+horizontal_alignment = 1
+
+[node name="lblScore" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout/ScorePanel/ScoreMargin/ScroeLayout" unique_id=1269262471]
+layout_mode = 2
+text = "#"
+horizontal_alignment = 1
+
+[node name="lblAccuracy" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout/ScorePanel/ScoreMargin/ScroeLayout" unique_id=1897709611]
+layout_mode = 2
+text = "Accuracy: #%"
+
+[node name="AccuracyBar" type="ProgressBar" parent="ScreenMargin/ResultsScroll/MainLayout/ScorePanel/ScoreMargin/ScroeLayout" unique_id=1617533243]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+show_percentage = false
+
+[node name="StatisticsPanel" type="PanelContainer" parent="ScreenMargin/ResultsScroll/MainLayout" unique_id=2117686832]
+layout_mode = 2
+
+[node name="StatisticsMargin" type="MarginContainer" parent="ScreenMargin/ResultsScroll/MainLayout/StatisticsPanel" unique_id=895598353]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="StatisticsGrid" type="GridContainer" parent="ScreenMargin/ResultsScroll/MainLayout/StatisticsPanel/StatisticsMargin" unique_id=1417082067]
+layout_mode = 2
+columns = 2
+
+[node name="lblTotalHeading" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout/StatisticsPanel/StatisticsMargin/StatisticsGrid" unique_id=2027460039]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Total questions"
+horizontal_alignment = 1
+
+[node name="lblTotalQuestions" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout/StatisticsPanel/StatisticsMargin/StatisticsGrid" unique_id=1765380081]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "#"
+
+[node name="lblCorrectHeading" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout/StatisticsPanel/StatisticsMargin/StatisticsGrid" unique_id=1038464884]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Correct answers"
+horizontal_alignment = 1
+
+[node name="lblCorrectAnswers" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout/StatisticsPanel/StatisticsMargin/StatisticsGrid" unique_id=1133953774]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "#"
+
+[node name="lblIncorrrectHeading" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout/StatisticsPanel/StatisticsMargin/StatisticsGrid" unique_id=137616078]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "Incorrect / timed out"
+horizontal_alignment = 1
+
+[node name="lblIncorrectAnswers" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout/StatisticsPanel/StatisticsMargin/StatisticsGrid" unique_id=1492517881]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "#"
+
+[node name="lblSaveStatus" type="Label" parent="ScreenMargin/ResultsScroll/MainLayout" unique_id=1568361952]
+layout_mode = 2
+text = "[PRACTICE TEST]"
+
+[node name="BottomActions" type="HBoxContainer" parent="ScreenMargin/ResultsScroll/MainLayout" unique_id=131036349]
+layout_mode = 2
+
+[node name="btnTryAgain" type="Button" parent="ScreenMargin/ResultsScroll/MainLayout/BottomActions" unique_id=1544306581]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Try Again"
+
+[node name="btnChangeSettings" type="Button" parent="ScreenMargin/ResultsScroll/MainLayout/BottomActions" unique_id=1604995662]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Change Settings"
+
+[node name="ActionSpacer" type="Control" parent="ScreenMargin/ResultsScroll/MainLayout/BottomActions" unique_id=892177977]
+layout_mode = 2
+
+[node name="btnDashboard" type="Button" parent="ScreenMargin/ResultsScroll/MainLayout/BottomActions" unique_id=1009332140]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Back to Dashboard"

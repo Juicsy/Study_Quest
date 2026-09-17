@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://h0ph1vfpaqa2"]
 
-[ext_resource type="Texture2D" uid="uid://ck8vxyjmjhjb6" path="res://assets/icons/SwordShield.png" id="1_0xjc8"]
-[ext_resource type="Script" uid="uid://ce4elw7m0n8te" path="res://scenes/login/Login.gd" id="1_h4wbb"]
+[ext_resource type="Script" uid="uid://ce4elw7m0n8te" path="res://Scenes/Login/login.gd" id="1_i1njh"]
+[ext_resource type="Texture2D" uid="uid://ck8vxyjmjhjb6" path="res://assets/icons/SwordShield.png" id="2_fj0rs"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
 colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)
@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_h4wbb")
+script = ExtResource("1_i1njh")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1663771154]
 layout_mode = 1
@@ -83,7 +83,7 @@ theme_override_constants/separation = 16
 [node name="Logo" type="TextureRect" parent="ScreenMargin/CenterLayout/LoginPanel/LoginMargin/LoginLayout" unique_id=1109223427]
 custom_minimum_size = Vector2(0, 80)
 layout_mode = 2
-texture = ExtResource("1_0xjc8")
+texture = ExtResource("2_fj0rs")
 expand_mode = 1
 stretch_mode = 5
 

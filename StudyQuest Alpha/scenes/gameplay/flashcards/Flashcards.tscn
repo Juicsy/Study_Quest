@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dpi2uvd2nywur"]
 
-[ext_resource type="Script" uid="uid://ce4elw7m0n8te" path="res://scenes/login/Login.gd" id="1_c7n3y"]
+[ext_resource type="Script" uid="uid://dn8t30ylm66hf" path="res://Scenes/gameplay/flashcards/flashcards.gd" id="1_57ccq"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
 colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)
@@ -10,7 +10,7 @@ gradient = SubResource("Gradient_5leke")
 fill_from = Vector2(0.4869565, 0)
 fill_to = Vector2(0.5478261, 1)
 
-[node name="Register" type="Control" unique_id=1419743369]
+[node name="Flashcards" type="Control" unique_id=1419743369]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_c7n3y")
+script = ExtResource("1_57ccq")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1663771154]
 layout_mode = 1
@@ -42,16 +42,136 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [node name="ScreenMargin" type="MarginContainer" parent="." unique_id=1812429115]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
-[node name="CenterLayout" type="CenterContainer" parent="ScreenMargin" unique_id=1058142620]
+[node name="MainLayout" type="VBoxContainer" parent="ScreenMargin" unique_id=1493239949]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="Header" type="HBoxContainer" parent="ScreenMargin/MainLayout" unique_id=115975911]
 layout_mode = 2
 
-[node name="TemplatePanel" type="PanelContainer" parent="ScreenMargin/CenterLayout" unique_id=1795228452]
+[node name="TitleSection" type="VBoxContainer" parent="ScreenMargin/MainLayout/Header" unique_id=1115014802]
 layout_mode = 2
 
-[node name="TemplateMargin" type="MarginContainer" parent="ScreenMargin/CenterLayout/TemplatePanel" unique_id=1560665063]
+[node name="lblTitle" type="Label" parent="ScreenMargin/MainLayout/Header/TitleSection" unique_id=1376755495]
+layout_mode = 2
+text = "Flashcards"
+
+[node name="lblSubject" type="Label" parent="ScreenMargin/MainLayout/Header/TitleSection" unique_id=286413598]
+layout_mode = 2
+text = "[SUBJECT] • [DIFFICULTY]"
+
+[node name="HeaderSpacer" type="Control" parent="ScreenMargin/MainLayout/Header" unique_id=245917561]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="btnExit" type="Button" parent="ScreenMargin/MainLayout/Header" unique_id=655436240]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Exit Session"
+
+[node name="ProgressSection" type="VBoxContainer" parent="ScreenMargin/MainLayout" unique_id=990560247]
 layout_mode = 2
 
-[node name="TemplateLayout" type="VBoxContainer" parent="ScreenMargin/CenterLayout/TemplatePanel/TemplateMargin" unique_id=1505565380]
+[node name="lblProgress" type="Label" parent="ScreenMargin/MainLayout/ProgressSection" unique_id=1993596584]
 layout_mode = 2
+text = "Card # of #"
+
+[node name="StudyProgress" type="ProgressBar" parent="ScreenMargin/MainLayout/ProgressSection" unique_id=1367369534]
+layout_mode = 2
+max_value = 3.0
+value = 1.0
+show_percentage = false
+
+[node name="CardArea" type="MarginContainer" parent="ScreenMargin/MainLayout" unique_id=287364001]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FlashcardPanel" type="PanelContainer" parent="ScreenMargin/MainLayout/CardArea" unique_id=526227632]
+layout_mode = 2
+
+[node name="CardMargin" type="MarginContainer" parent="ScreenMargin/MainLayout/CardArea/FlashcardPanel" unique_id=1207854291]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="CardLayout" type="VBoxContainer" parent="ScreenMargin/MainLayout/CardArea/FlashcardPanel/CardMargin" unique_id=1561757081]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="lblCardSide" type="Label" parent="ScreenMargin/MainLayout/CardArea/FlashcardPanel/CardMargin/CardLayout" unique_id=1596072099]
+layout_mode = 2
+text = "QUESTION"
+horizontal_alignment = 1
+
+[node name="CardScroll" type="ScrollContainer" parent="ScreenMargin/MainLayout/CardArea/FlashcardPanel/CardMargin/CardLayout" unique_id=1862280530]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 3
+draw_focus_border = true
+horizontal_scroll_mode = 0
+
+[node name="lblCardContent" type="Label" parent="ScreenMargin/MainLayout/CardArea/FlashcardPanel/CardMargin/CardLayout/CardScroll" unique_id=1394751665]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "[SAMPLE QUESTION]"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="lblHint" type="Label" parent="ScreenMargin/MainLayout/CardArea/FlashcardPanel/CardMargin/CardLayout" unique_id=2131675440]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+text = "[HINT]"
+autowrap_mode = 3
+
+[node name="Navigation" type="HBoxContainer" parent="ScreenMargin/MainLayout" unique_id=130838823]
+layout_mode = 2
+
+[node name="btnPrevious" type="Button" parent="ScreenMargin/MainLayout/Navigation" unique_id=1721699621]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Previous[]"
+
+[node name="LeftSpacer" type="Control" parent="ScreenMargin/MainLayout/Navigation" unique_id=41360034]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="btnReveal" type="Button" parent="ScreenMargin/MainLayout/Navigation" unique_id=949178590]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Reveal Answer"
+
+[node name="RightSpacer" type="Control" parent="ScreenMargin/MainLayout/Navigation" unique_id=1658316849]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="btnNext" type="Button" parent="ScreenMargin/MainLayout/Navigation" unique_id=2067841620]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Next"
+
+[node name="ExitConfirmation" type="ConfirmationDialog" parent="." unique_id=864799835]
+oversampling_override = 1.0
+position = Vector2i(0, 36)
+size = Vector2i(200, 106)
+dialog_text = "Leave this Flashcards lesson?"
+dialog_autowrap = true
+
+[connection signal="button_down" from="ScreenMargin/MainLayout/Header/btnExit" to="." method="_on_btn_exit_button_down"]
+[connection signal="button_down" from="ScreenMargin/MainLayout/Navigation/btnPrevious" to="." method="_on_btn_previous_button_down"]
+[connection signal="button_down" from="ScreenMargin/MainLayout/Navigation/btnReveal" to="." method="_on_btn_reveal_button_down"]
+[connection signal="button_down" from="ScreenMargin/MainLayout/Navigation/btnNext" to="." method="_on_btn_next_button_down"]

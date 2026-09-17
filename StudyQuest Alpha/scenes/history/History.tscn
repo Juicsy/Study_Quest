@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dlewa4nvjxqp8"]
 
-[ext_resource type="Script" uid="uid://ce4elw7m0n8te" path="res://scenes/login/Login.gd" id="1_ptweb"]
+[ext_resource type="Script" path="res://scenes/login/Login.gd" id="1_ptweb"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
 colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://d12s3npwksirr"]
 
-[ext_resource type="Script" uid="uid://ce4elw7m0n8te" path="res://scenes/login/Login.gd" id="1_rgu4j"]
+[ext_resource type="Script" uid="uid://ccimud2hl8t4s" path="res://Scenes/gameplay/quiz/Quiz.gd" id="1_calp0"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
 colors = PackedColorArray(0.02745098, 0.101960786, 0.019607844, 1, 0.048767507, 0.2910306, 0.152676, 1)
@@ -10,7 +10,9 @@ gradient = SubResource("Gradient_5leke")
 fill_from = Vector2(0.4869565, 0)
 fill_to = Vector2(0.5478261, 1)
 
-[node name="Register" type="Control" unique_id=1419743369]
+[sub_resource type="ButtonGroup" id="ButtonGroup_hh8f5"]
+
+[node name="Quiz" type="Control" unique_id=1419743369]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("1_rgu4j")
+script = ExtResource("1_calp0")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1663771154]
 layout_mode = 1
@@ -42,16 +44,193 @@ mouse_filter = 2
 color = Color(1, 1, 1, 0)
 
 [node name="ScreenMargin" type="MarginContainer" parent="." unique_id=1812429115]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
 
-[node name="CenterLayout" type="CenterContainer" parent="ScreenMargin" unique_id=1058142620]
+[node name="MainLayout" type="VBoxContainer" parent="ScreenMargin" unique_id=948130862]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Header" type="HBoxContainer" parent="ScreenMargin/MainLayout" unique_id=552896258]
 layout_mode = 2
 
-[node name="TemplatePanel" type="PanelContainer" parent="ScreenMargin/CenterLayout" unique_id=1795228452]
+[node name="TitleSection" type="VBoxContainer" parent="ScreenMargin/MainLayout/Header" unique_id=1630484036]
 layout_mode = 2
 
-[node name="TemplateMargin" type="MarginContainer" parent="ScreenMargin/CenterLayout/TemplatePanel" unique_id=1560665063]
+[node name="lblTitle" type="Label" parent="ScreenMargin/MainLayout/Header/TitleSection" unique_id=1161062988]
+layout_mode = 2
+text = "Quiz"
+
+[node name="lblSubject" type="Label" parent="ScreenMargin/MainLayout/Header/TitleSection" unique_id=904722773]
+layout_mode = 2
+text = "[SUBJECT] • [DIFFICULTY]"
+
+[node name="HeaderSpacer" type="Control" parent="ScreenMargin/MainLayout/Header" unique_id=1310456994]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lblScore" type="Label" parent="ScreenMargin/MainLayout/Header" unique_id=708782904]
+layout_mode = 2
+text = "Score: #"
+
+[node name="btnExit" type="Button" parent="ScreenMargin/MainLayout/Header" unique_id=257381698]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Exit Quiz"
+
+[node name="ProgressSection" type="VBoxContainer" parent="ScreenMargin/MainLayout" unique_id=1851955038]
 layout_mode = 2
 
-[node name="TemplateLayout" type="VBoxContainer" parent="ScreenMargin/CenterLayout/TemplatePanel/TemplateMargin" unique_id=1505565380]
+[node name="ProgressHeader" type="HBoxContainer" parent="ScreenMargin/MainLayout/ProgressSection" unique_id=813003266]
 layout_mode = 2
+
+[node name="lblProgess" type="Label" parent="ScreenMargin/MainLayout/ProgressSection/ProgressHeader" unique_id=1500386316]
+layout_mode = 2
+text = "Question # of #"
+
+[node name="ProgressSpacer" type="Control" parent="ScreenMargin/MainLayout/ProgressSection/ProgressHeader" unique_id=440193857]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="lblTimer" type="Label" parent="ScreenMargin/MainLayout/ProgressSection/ProgressHeader" unique_id=2078097951]
+layout_mode = 2
+text = "Time: #s"
+
+[node name="QuestionProgress" type="ProgressBar" parent="ScreenMargin/MainLayout/ProgressSection" unique_id=752377753]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+max_value = 3.0
+value = 1.0
+show_percentage = false
+
+[node name="TimeRemaining" type="ProgressBar" parent="ScreenMargin/MainLayout/ProgressSection" unique_id=426222093]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+max_value = 30.0
+value = 30.0
+show_percentage = false
+
+[node name="QuestionPanel" type="PanelContainer" parent="ScreenMargin/MainLayout" unique_id=352582783]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuestionMargin" type="MarginContainer" parent="ScreenMargin/MainLayout/QuestionPanel" unique_id=600818133]
+layout_mode = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="QuestionLayout" type="VBoxContainer" parent="ScreenMargin/MainLayout/QuestionPanel/QuestionMargin" unique_id=2129859189]
+layout_mode = 2
+
+[node name="lblQuestionType" type="Label" parent="ScreenMargin/MainLayout/QuestionPanel/QuestionMargin/QuestionLayout" unique_id=620189820]
+layout_mode = 2
+text = "[QUESTION TYPE]"
+
+[node name="QuestionScroll" type="ScrollContainer" parent="ScreenMargin/MainLayout/QuestionPanel/QuestionMargin/QuestionLayout" unique_id=625292127]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="lblQuestionText" type="Label" parent="ScreenMargin/MainLayout/QuestionPanel/QuestionMargin/QuestionLayout/QuestionScroll" unique_id=1262320270]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+text = "[QUESTION TEXT]"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnswerSection" type="VBoxContainer" parent="ScreenMargin/MainLayout" unique_id=1083234461]
+layout_mode = 2
+
+[node name="MultipleChoiceSection" type="GridContainer" parent="ScreenMargin/MainLayout/AnswerSection" unique_id=1236369199]
+layout_mode = 2
+columns = 2
+
+[node name="btnOptionA" type="Button" parent="ScreenMargin/MainLayout/AnswerSection/MultipleChoiceSection" unique_id=669793452]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hh8f5")
+text = "A. #"
+autowrap_mode = 3
+
+[node name="btnOptionB" type="Button" parent="ScreenMargin/MainLayout/AnswerSection/MultipleChoiceSection" unique_id=158130768]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hh8f5")
+text = "B. #"
+autowrap_mode = 3
+
+[node name="btnOptionC" type="Button" parent="ScreenMargin/MainLayout/AnswerSection/MultipleChoiceSection" unique_id=860233571]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hh8f5")
+text = "C. #"
+autowrap_mode = 3
+
+[node name="btnOptionD" type="Button" parent="ScreenMargin/MainLayout/AnswerSection/MultipleChoiceSection" unique_id=719000989]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+size_flags_horizontal = 3
+toggle_mode = true
+button_group = SubResource("ButtonGroup_hh8f5")
+text = "D. #"
+autowrap_mode = 3
+
+[node name="IdentificationSection" type="VBoxContainer" parent="ScreenMargin/MainLayout/AnswerSection" unique_id=1732042567]
+layout_mode = 2
+
+[node name="lblAnswerPrompt" type="Label" parent="ScreenMargin/MainLayout/AnswerSection/IdentificationSection" unique_id=1305608321]
+layout_mode = 2
+text = "Your answer: "
+
+[node name="txtAnswer" type="LineEdit" parent="ScreenMargin/MainLayout/AnswerSection/IdentificationSection" unique_id=430501304]
+layout_mode = 2
+placeholder_text = "Type your answer here"
+
+[node name="lblFeedback" type="Label" parent="ScreenMargin/MainLayout" unique_id=888352902]
+custom_minimum_size = Vector2(1, 1)
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="BottomActions" type="HBoxContainer" parent="ScreenMargin/MainLayout" unique_id=1210210910]
+layout_mode = 2
+
+[node name="btnSubmit" type="Button" parent="ScreenMargin/MainLayout/BottomActions" unique_id=1139872143]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Submit Answer"
+
+[node name="ActionSpacer" type="Control" parent="ScreenMargin/MainLayout/BottomActions" unique_id=1412911573]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="btnNext" type="Button" parent="ScreenMargin/MainLayout/BottomActions" unique_id=13412413]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+text = "Next Question"
+
+[node name="QuestionTimer" type="Timer" parent="." unique_id=91913878]
+wait_time = 30.0
+one_shot = true
+
+[node name="ExitConfirmation" type="ConfirmationDialog" parent="." unique_id=1491528802]
+dialog_text = "Leave this quiz? Your current attempt will not be saved."

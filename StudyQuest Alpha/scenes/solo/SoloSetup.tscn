@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ba3tgbtc1wov4"]
 
 [ext_resource type="PackedScene" uid="uid://bh6aandrqcol6" path="res://components/sidebar/Sidebar.tscn" id="1_4qn46"]
+[ext_resource type="Script" uid="uid://d1f3bi866onsx" path="res://Scenes/solo/solo_setup.gd" id="1_xydyl"]
 [ext_resource type="Texture2D" uid="uid://bhoscqbnslye6" path="res://icon.svg" id="2_l82yk"]
 
 [sub_resource type="Gradient" id="Gradient_5leke"]
@@ -20,6 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_xydyl")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1663771154]
 layout_mode = 1
@@ -250,3 +252,7 @@ size_flags_horizontal = 3
 [node name="btnStart" type="Button" parent="MainLayout/ContentMargin/SetupScroll/ContentLayout/BotomActions" unique_id=193161227]
 layout_mode = 2
 text = "Start Studying *On until setup is valid*"
+
+[connection signal="button_down" from="MainLayout/ContentMargin/SetupScroll/ContentLayout/GameTypeCards/FlashcardsCard/FlashcardsMargin/FlashcardsLayout/btnFlashcards" to="." method="_on_btn_flashcards_button_down"]
+[connection signal="button_down" from="MainLayout/ContentMargin/SetupScroll/ContentLayout/GameTypeCards/QuizCard/QuizMargin/QuizLayout/btnQuiz" to="." method="_on_btn_quiz_button_down"]
+[connection signal="button_down" from="MainLayout/ContentMargin/SetupScroll/ContentLayout/BotomActions/btnBack" to="." method="_on_btn_back_button_down"]
